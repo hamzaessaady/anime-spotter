@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
+import AnimeItem from './components/animes/AnimeItem';
 
 import './App.css';
 
@@ -10,6 +11,9 @@ class App extends Component {
         <header className="uk-section-primary uk-preserve-color">
           <Navbar />
         </header>
+        <main>
+          <AnimeItem />
+        </main>
       </div>
     );
   }
