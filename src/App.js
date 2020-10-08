@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
-import AnimeItem from './components/animes/AnimeItem';
+import Animes from './components/animes/Animes';
 
 import './App.css';
 
@@ -12,7 +12,7 @@ class App extends Component {
           <Navbar />
         </header>
         <main>
-          <AnimeItem />
+          <Animes />
         </main>
       </div>
     );
