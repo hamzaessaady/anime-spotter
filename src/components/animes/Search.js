@@ -11,7 +11,9 @@ class Search extends Component {
 
   // PropTypes
   static propTypes = { 
-    searchAnimes: PropTypes.func.isRequired
+    searchAnimes: PropTypes.func.isRequired,
+    clearAnimes: PropTypes.func.isRequired,
+    isShowClear: PropTypes.bool.isRequired
   }
 
   // Events
@@ -22,6 +24,12 @@ class Search extends Component {
   onSubmit = (event) => {
     event.preventDefault();
     this.props.searchAnimes(this.state.search);
+  }
+
+  // Clear Search
+  clearSearch = () => {
+    this.setState({search: ''});
+    this.props.clearAnimes();
   }
 
   // Render
@@ -46,6 +54,12 @@ class Search extends Component {
                 </div>
               </div>
             </form>
+            {this.props.isShowClear &&
+              <button className="uk-button uk-button-text"
+                onClick={this.clearSearch}>
+                Clear
+              </button>
+            }
           </div>
         </article>
       </Fragment>

@@ -29,6 +29,15 @@ class App extends Component {
     window.scrollTo(0, 200);
   }
 
+  // Clear animes state
+  clearAnimes = () => {
+    this.setState({
+      animes: [],
+      isLoading: false,
+      isNoResults: false
+    });
+  }
+
   // Render
   render() {
     return (
@@ -37,7 +46,11 @@ class App extends Component {
           <Navbar />
         </header>
         <main>
-          <Search searchAnimes={this.searchAnimes}/>
+          <Search 
+            searchAnimes={this.searchAnimes}
+            clearAnimes={this.clearAnimes}
+            isShowClear={this.state.animes.length > 0 ? true : false}
+          />
           <Animes
             isLoading={this.state.isLoading} 
             isNoResults={this.state.isNoResults}
