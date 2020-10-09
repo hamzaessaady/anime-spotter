@@ -1,11 +1,17 @@
 import React, { Component, Fragment } from 'react';
 import chopper from './chopper.png';
+import PropTypes from 'prop-types'
 
 class Search extends Component {
 
   // State
   state = {
     search: ''
+  }
+
+  // PropTypes
+  static propTypes = { 
+    searchAnimes: PropTypes.func.isRequired
   }
 
   // Events
@@ -15,8 +21,7 @@ class Search extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.search);
-    window.scrollTo(0, 200);
+    this.props.searchAnimes(this.state.search);
   }
 
   // Render

@@ -8,17 +8,25 @@ import './App.css';
 
 class App extends Component {
 
+  API_BASE_URL = 'https://kitsu.io/api/edge/anime';
+
   // State
   state = {
     animes: [],
-    isLoading: false
+    isLoading: false,
+    isNoResults: false
   }
 
-  // OnInit
-  async componentDidMount(){
+  // SearchAnimes
+  searchAnimes = async (keyword) => {
     this.setState({ isLoading: true });
-    const result = await axios.get('https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=0');
-    this.setState({animes: result.data.data, isLoading: false});
+    const result = await axios.get(`${this.API_BASE_URL}?filter[text]=${keyword}`);
+    this.setState({
+      animes: result.data.data,
+      isLoading: false,
+      isNoResults: result.data.data.length === 0 ? true : false
+    });
+    window.scrollTo(0, 200);
   }
 
   // Render
@@ -29,10 +37,11 @@ class App extends Component {
           <Navbar />
         </header>
         <main>
-          <Search />
+          <Search searchAnimes={this.searchAnimes}/>
           <Animes
             isLoading={this.state.isLoading} 
-            animes={this.state.animes} 
+            isNoResults={this.state.isNoResults}
+            animes={this.state.animes}
           />
         </main>
       </div>

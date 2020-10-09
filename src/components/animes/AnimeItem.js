@@ -15,10 +15,14 @@ const AnimeItem = (props) => {
           </div>
           <div className="uk-width-expand">
             <div className="uk-card-body">
-              <div className="uk-card-badge uk-label" style={{top:'10px', right:0}}>{status}</div>
+              <div style={{top:'10px', right:0}}
+              className={`uk-card-badge uk-label 
+                ${status==='finished' && 'uk-label-success'} 
+                ${status==='current' && 'uk-label-warning'}`} >
+                {status}
+              </div>
               <h3 className="uk-card-title uk-margin-top">{titles.en_jp}</h3>
               <p className="">{`${synopsis.substring(0, 150)}...`}</p>
-              
             </div>
             <div style={{border:'none'}}
               className="uk-card-footer uk-padding-remove uk-flex uk-flex-bottom">
