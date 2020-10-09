@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 
 
 const AnimeItem = (props) => {
-  const { posterImage, status, title, synopsis } = props.anime;
+  const { titles, status, posterImage, synopsis } = props.anime.attributes;
 
   return (
     <Fragment>
       <div>
         <div className="uk-card uk-card-small uk-card-hover uk-card-default uk-grid-collapse uk-margin uk-grid-match" data-uk-grid>
           <div className="uk-card-media-left uk-cover-container uk-width-1-4">
-            <img src={posterImage} alt="Poster" data-uk-cover />
+            <img src={posterImage.original} alt="Poster" data-uk-cover />
             <canvas width={600} height={400} />
           </div>
           <div className="uk-width-expand">
             <div className="uk-card-body">
               <div className="uk-card-badge uk-label" style={{top:'10px', right:0}}>{status}</div>
-              <h3 className="uk-card-title uk-margin-top">{title}</h3>
+              <h3 className="uk-card-title uk-margin-top">{titles.en_jp}</h3>
               <p className="">{`${synopsis.substring(0, 150)}...`}</p>
               
             </div>
