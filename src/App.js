@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
 import Animes from './components/animes/Animes';
+import Search from './components/animes/Search';
 import axios from 'axios';
 
 import './App.css';
@@ -28,6 +29,7 @@ class App extends Component {
           <Navbar />
         </header>
         <main>
+          <Search />
           <Animes
             isLoading={this.state.isLoading} 
             animes={this.state.animes} 

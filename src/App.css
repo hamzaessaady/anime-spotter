@@ -1,2 +1,5 @@
 /* GLOBAL CSS GOES HERE */
-html {background-color: #f8f8f8;}
+html {
+  background-color: #f8f8f8;
+  scroll-behavior: smooth;
+}
