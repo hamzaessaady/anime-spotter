@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Alert from './components/layout/Alert';
 import Animes from './components/animes/Animes';
@@ -49,25 +50,33 @@ class App extends Component {
   // Render
   render() {
     return (
-      <div className="App">
-        <header className="uk-section-primary uk-preserve-color">
-          <Navbar />
-        </header>
-        <main>
-          <Alert alert={this.state.alert} />
-          <Search 
-            searchAnimes={this.searchAnimes}
-            clearAnimes={this.clearAnimes}
-            isShowClear={this.state.animes.length > 0 ? true : false}
-            showAlert={this.showAlert}
-          />
-          <Animes
-            isLoading={this.state.isLoading} 
-            isNoResults={this.state.isNoResults}
-            animes={this.state.animes}
-          />
-        </main>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <header className="uk-section-primary uk-preserve-color">
+            <Navbar />
+          </header>
+          <main>
+            <Alert alert={this.state.alert} />
+            <Switch>
+              <Route exact path="/" render={props => (
+                <Fragment>
+                  <Search 
+                    searchAnimes={this.searchAnimes}
+                    clearAnimes={this.clearAnimes}
+                    isShowClear={this.state.animes.length > 0 ? true : false}
+                    showAlert={this.showAlert}
+                  />
+                  <Animes
+                    isLoading={this.state.isLoading} 
+                    isNoResults={this.state.isNoResults}
+                    animes={this.state.animes}
+                  />
+                </Fragment>
+              )} />
+            </Switch>
+          </main>
+        </div>
+      </BrowserRouter>
     );
   }
 }
