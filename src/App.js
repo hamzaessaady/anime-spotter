@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
+import Alert from './components/layout/Alert';
 import Animes from './components/animes/Animes';
 import Search from './components/animes/Search';
 import axios from 'axios';
@@ -14,7 +15,8 @@ class App extends Component {
   state = {
     animes: [],
     isLoading: false,
-    isNoResults: false
+    isNoResults: false,
+    alert: null
   }
 
   // SearchAnimes
@@ -38,6 +40,12 @@ class App extends Component {
     });
   }
 
+  // Show Alert
+  showAlert = (message, sevirity) => {
+    this.setState({ alert: {message, sevirity}});
+    setTimeout(() => this.setState({alert: null}), 2000)
+  }
+
   // Render
   render() {
     return (
@@ -46,10 +54,12 @@ class App extends Component {
           <Navbar />
         </header>
         <main>
+          <Alert alert={this.state.alert} />
           <Search 
             searchAnimes={this.searchAnimes}
             clearAnimes={this.clearAnimes}
             isShowClear={this.state.animes.length > 0 ? true : false}
+            showAlert={this.showAlert}
           />
           <Animes
             isLoading={this.state.isLoading} 

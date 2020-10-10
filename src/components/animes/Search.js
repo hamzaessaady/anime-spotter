@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import chopper from './chopper.png';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 class Search extends Component {
 
@@ -13,6 +13,7 @@ class Search extends Component {
   static propTypes = { 
     searchAnimes: PropTypes.func.isRequired,
     clearAnimes: PropTypes.func.isRequired,
+    showAlert: PropTypes.func.isRequired,
     isShowClear: PropTypes.bool.isRequired
   }
 
@@ -23,7 +24,12 @@ class Search extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    this.props.searchAnimes(this.state.search);
+    const keyword = this.state.search.trim();
+    if (keyword !== '') {
+      this.props.searchAnimes(keyword);
+    } else {
+      this.props.showAlert('Please enter a valid keyword !', 'danger');
+    } 
   }
 
   // Clear Search
