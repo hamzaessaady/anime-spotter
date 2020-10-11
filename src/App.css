@@ -1,5 +1,9 @@
 /* GLOBAL CSS GOES HERE */
 html {
-  background-color: #f8f8f8;
+  
   scroll-behavior: smooth;
+}
+
+.bg-muted-er {
+  background-color: #e5e5e5;
 }

@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
+
 
 
 const AnimeItem = (props) => {
   const { titles, status, posterImage, synopsis } = props.anime.attributes;
+  const { id } = props.anime;
 
   return (
     <Fragment>
@@ -26,7 +29,11 @@ const AnimeItem = (props) => {
             </div>
             <div style={{border:'none'}}
               className="uk-card-footer uk-padding-remove uk-flex uk-flex-bottom">
-              <button className="uk-button uk-button-primary uk-button-small uk-width-1-1">Read More</button>
+              <Link to={`anime/${id}`} className="uk-width-1-1">
+                <button className="uk-button uk-button-primary uk-button-small uk-width-1-1">
+                  Read More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
