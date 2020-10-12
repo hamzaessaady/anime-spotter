@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Alert from './components/layout/Alert';
 import Animes from './components/animes/Animes';
-import Anime from './components/animes/Anime';
+import Anime from './components/anime/Anime';
 import Search from './components/animes/Search';
 import About from './components/pages/About';
 import axios from 'axios';
