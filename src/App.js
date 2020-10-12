@@ -17,12 +17,7 @@ class App extends Component {
   // State
   state = {
     animes: [],
-    anime: {
-      attributes: {
-        
-        
-      }
-    },
+    anime: {},
     isLoading: false,
     isNoResults: false,
     alert: null
@@ -44,8 +39,11 @@ class App extends Component {
   getAnime = async (id) => {
     this.setState({ isLoading: true });
     const result = await axios.get(`${this.API_BASE_URL}/${id}`);
+    const genres = await axios.get(`${this.API_BASE_URL}/${id}/genres?fields[genres]=name`);
+    
+    result.data.data.attributes.genres = genres.data.data.map(g => g.attributes.name);
     this.setState({
-      anime: result.data.data,
+      anime: result.data.data.attributes,
       isLoading: false
     });
   }

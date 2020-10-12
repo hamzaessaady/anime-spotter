@@ -7,3 +7,7 @@ html {
 .bg-muted-er {
   background-color: #e5e5e5;
 }
+
+.uk-description-list>dt {
+  font-weight: 700;
+}
