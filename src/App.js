@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import AnimeState from '../src/context/anime/AnimeState';
 import Navbar from './components/layout/Navbar';
 import Alert from './components/layout/Alert';
 import Animes from './components/animes/Animes';
@@ -55,42 +56,45 @@ const App = () => {
 
   /* Return */
   return (
-    <BrowserRouter>
-      <div className="App">
-        <header className="uk-position-top uk-position-z-index">
-          <Navbar />
-        </header>
-        <main>
-          <Alert alert={alert} />
-          <Switch>
-            <Route exact path="/" render={props => (
-              <Fragment>
-                <Search 
-                  searchAnimes={searchAnimes}
-                  clearAnimes={clearAnimes}
-                  isShowClear={animes.length > 0 ? true : false}
-                  showAlert={showAlert}
+    <AnimeState>
+
+      <BrowserRouter>
+        <div className="App">
+          <header className="uk-position-top uk-position-z-index">
+            <Navbar />
+          </header>
+          <main>
+            <Alert alert={alert} />
+            <Switch>
+              <Route exact path="/" render={props => (
+                <Fragment>
+                  <Search 
+                    searchAnimes={searchAnimes}
+                    clearAnimes={clearAnimes}
+                    isShowClear={animes.length > 0 ? true : false}
+                    showAlert={showAlert}
+                  />
+                  <Animes
+                    isLoading={isLoading} 
+                    isNoResults={isNoResults}
+                    animes={animes}
+                  />
+                </Fragment>
+              )} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/anime/:id" render={props => (
+                <Anime 
+                  {...props} 
+                  getAnime={getAnime}
+                  anime={anime}
+                  isLoading={isLoading}
                 />
-                <Animes
-                  isLoading={isLoading} 
-                  isNoResults={isNoResults}
-                  animes={animes}
-                />
-              </Fragment>
-            )} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/anime/:id" render={props => (
-              <Anime 
-                {...props} 
-                getAnime={getAnime}
-                anime={anime}
-                isLoading={isLoading}
-              />
-            )} />
-          </Switch>
-        </main>
-      </div>
-    </BrowserRouter>
+              )} />
+            </Switch>
+          </main>
+        </div>
+      </BrowserRouter>
+    </AnimeState>
   );
   
 }
