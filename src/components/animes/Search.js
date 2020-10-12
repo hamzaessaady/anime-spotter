@@ -1,76 +1,74 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
+import { useState } from 'react';
 import chopper from './chopper.png';
 import PropTypes from 'prop-types';
 
-class Search extends Component {
+const Search = ({ searchAnimes, showAlert, clearAnimes, isShowClear }) => {
 
   // State
-  state = {
-    search: ''
-  }
-
-  // PropTypes
-  static propTypes = { 
-    searchAnimes: PropTypes.func.isRequired,
-    clearAnimes: PropTypes.func.isRequired,
-    showAlert: PropTypes.func.isRequired,
-    isShowClear: PropTypes.bool.isRequired
-  }
+  const [search, setSearch] = useState('');
 
   // Events
-  onChange = (event) => {
-    this.setState({[event.target.name]: event.target.value});
+  const onChange = (event) => {
+    setSearch(event.target.value);
   }
 
-  onSubmit = (event) => {
+  const onSubmit = (event) => {
     event.preventDefault();
-    const keyword = this.state.search.trim();
+    const keyword = search.trim();
     if (keyword !== '') {
-      this.props.searchAnimes(keyword);
+      searchAnimes(keyword);
     } else {
-      this.props.showAlert('Please enter a valid keyword !', 'danger');
+      showAlert('Please enter a valid keyword !', 'danger');
     } 
   }
 
   // Clear Search
-  clearSearch = () => {
-    this.setState({search: ''});
-    this.props.clearAnimes();
+  const clearSearch = () => {
+    setSearch('');
+    clearAnimes();
   }
 
-  // Render
-  render() {
-    return (
-      <Fragment>
-        <article className="uk-section uk-section-primary uk-light uk-margin-bottom">
-          <div className="uk-container uk-text-center">
-            <h2 className="uk-text-lead uk-text-capitalize">
-              Best place to search for any anime data
-            </h2>
-            <img src={chopper} alt="Illustration" width="200px"/>
-            <form onSubmit={this.onSubmit}>
-              <div className="uk-margin">
-                <div className="uk-inline">
-                  <input className="uk-input uk-form-width-large uk-form-large"
-                    type="text" name="search" placeholder="e.g. One piece"
-                    value={this.state.search} onChange={this.onChange} />
-                  <button className="uk-form-icon uk-form-icon-flip"
-                    type="submit" data-uk-icon="icon: search">
-                  </button>
-                </div>
+  // Return
+  return (
+    <Fragment>
+      <article className="uk-section uk-section-primary uk-light uk-margin-bottom">
+        <div className="uk-container uk-text-center uk-margin-medium-top">
+          <h2 className="uk-text-capitalize">
+            Best place to search for any anime data
+          </h2>
+          <img src={chopper} alt="Illustration" width="200px"/>
+          <form onSubmit={onSubmit}>
+            <div className="uk-margin">
+              <div className="uk-inline">
+                <input className="uk-input uk-form-width-large uk-form-large"
+                  type="text" name="search" placeholder="e.g. One piece"
+                  value={search} onChange={onChange} />
+                <button className="uk-form-icon uk-form-icon-flip"
+                  type="submit" data-uk-icon="icon: search">
+                </button>
               </div>
-            </form>
-            {this.props.isShowClear &&
-              <button className="uk-button uk-button-text"
-                onClick={this.clearSearch}>
-                Clear
-              </button>
-            }
-          </div>
-        </article>
-      </Fragment>
-    )
-  }
+            </div>
+          </form>
+          {isShowClear &&
+            <button className="uk-button uk-button-text"
+              onClick={clearSearch}>
+              Clear
+            </button>
+          }
+        </div>
+      </article>
+    </Fragment>
+  )
+
+}
+
+// PropTypes
+Search.propTypes = { 
+  searchAnimes: PropTypes.func.isRequired,
+  clearAnimes: PropTypes.func.isRequired,
+  showAlert: PropTypes.func.isRequired,
+  isShowClear: PropTypes.bool.isRequired
 }
 
 export default Search;
