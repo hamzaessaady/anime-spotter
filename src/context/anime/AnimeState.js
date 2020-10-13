@@ -13,7 +13,7 @@ import {
 
 /* Env Vars */
 let APIBaseUrl;
-if (process.env.NODE_ENV != 'production') {
+if (process.env.NODE_ENV !== 'production') {
   APIBaseUrl = process.env.REACT_APP_API_BASE_URL;
 } else {
   APIBaseUrl = process.env.API_BASE_URL;
