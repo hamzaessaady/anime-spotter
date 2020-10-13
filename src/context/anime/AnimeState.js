@@ -17,6 +17,10 @@ if (process.env.NODE_ENV !== 'production') {
   APIBaseUrl = process.env.REACT_APP_API_BASE_URL;
 } else {
   APIBaseUrl = process.env.API_BASE_URL;
+  // TODO Fix the undefined netlify env build var
+  // For now I just pass the value directly
+  if (APIBaseUrl === undefined)
+    APIBaseUrl = 'https://kitsu.io/api/edge/anime';
 }
 
 const AnimeState = (props) => {
