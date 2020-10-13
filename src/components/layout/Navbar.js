@@ -11,7 +11,7 @@ const Navbar = (props) => {
       data-uk-navbar="mode: click">
       <div className="uk-navbar-left">
         <Link className="uk-navbar-item uk-logo uk-text-primary" to="/">
-          <img src={logo} alt="Logo" width="50px"/> {props.logoTitle}
+          <img src={logo} alt="Logo" width="220px"/>
         </Link>
       </div>
       <div className="uk-navbar-right uk-margin-right">

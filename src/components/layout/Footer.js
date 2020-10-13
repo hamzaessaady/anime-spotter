@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import logoFooter from './logoFooter.png'
+import logoFooter from './logo.png'
 
 const Footer = () => {
   return (
