@@ -11,6 +11,14 @@ import {
   HIDE_FOOTER
 } from '../types';
 
+/* Env Vars */
+let APIBaseUrl;
+if (process.env.NODE_ENV != 'production') {
+  APIBaseUrl = process.env.REACT_APP_API_BASE_URL;
+} else {
+  APIBaseUrl = process.env.API_BASE_URL;
+}
+
 const AnimeState = (props) => {
 
   /* Initial State */
@@ -34,7 +42,7 @@ const AnimeState = (props) => {
   /* Action : Search Animes*/
   const searchAnimes = async (keyword) => {
     setLoading();
-    const result = await axios.get(`${process.env.REACT_APP_API_BASE_URL}?filter[text]=${keyword}`);
+    const result = await axios.get(`${APIBaseUrl}?filter[text]=${keyword}`);
     dispatch({ 
       type: SEARCH_ANIMES, 
       payload: result.data.data
@@ -53,8 +61,8 @@ const AnimeState = (props) => {
   const getAnime = async (id) => {
     setLoading();
     hideFooter();
-    const result = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/${id}`);
-    const genres = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/${id}/genres?fields[genres]=name`);
+    const result = await axios.get(`${APIBaseUrl}/${id}`);
+    const genres = await axios.get(`${APIBaseUrl}/${id}/genres?fields[genres]=name`);
     result.data.data.attributes.genres = genres.data.data.map(g => g.attributes.name);
     dispatch({
       type: GET_ANIME,
