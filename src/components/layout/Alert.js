@@ -1,6 +1,13 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react';
+import AlertContext from '../../context/alert/alertContext';
 
-const Alert = ({alert}) => {
+const Alert = () => {
+
+  // Context
+  const alertContext = useContext(AlertContext);
+  const { alert } = alertContext;
+
+  // Return
   return (
     <Fragment>
       {alert !== null && 

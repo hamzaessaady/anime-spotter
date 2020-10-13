@@ -1,18 +1,15 @@
-import React, { Fragment } from 'react';
-import { useState, useContext } from 'react';
-import PropTypes from 'prop-types';
-import AnimeContext from '../../context/anime/animeContext'
+import React, { Fragment, useState, useContext } from 'react';
+import AnimeContext from '../../context/anime/animeContext';
+import AlertContext from '../../context/alert/alertContext';
 import chopper from './chopper.png';
 
-const Search = ({ showAlert }) => {
+const Search = () => {
 
   // Context
   const animeContext = useContext(AnimeContext);
-  const { 
-    searchAnimes,
-    clearAnimes,
-    animes
-  } = animeContext;
+  const alertContext = useContext(AlertContext);
+  const { animes, searchAnimes, clearAnimes } = animeContext;
+  const { showAlert } = alertContext;
 
   // State
   const [search, setSearch] = useState('');
@@ -70,11 +67,6 @@ const Search = ({ showAlert }) => {
     </Fragment>
   )
 
-}
-
-// PropTypes
-Search.propTypes = { 
-  showAlert: PropTypes.func.isRequired,
 }
 
 export default Search;
