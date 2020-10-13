@@ -7,35 +7,15 @@ import Animes from './components/animes/Animes';
 import Anime from './components/anime/Anime';
 import Search from './components/animes/Search';
 import About from './components/pages/About';
-import axios from 'axios';
 
 import './App.css';
 
 const App = () => {
 
-  /* Constants */
-  const API_BASE_URL = 'https://kitsu.io/api/edge/anime';
-
   /* State */
-  const 
-    [anime, setAnime] = useState({}),
-    [isLoading, setIsLoading] = useState(false),
-    [alert, setAlert] = useState(null);
+  const [alert, setAlert] = useState(null);
 
   /* Actions */
-  
-
-  const getAnime = async (id) => {
-    setIsLoading(true);
-    const result = await axios.get(`${API_BASE_URL}/${id}`);
-    const genres = await axios.get(`${API_BASE_URL}/${id}/genres?fields[genres]=name`);
-    result.data.data.attributes.genres = genres.data.data.map(g => g.attributes.name);
-    setAnime(result.data.data.attributes);
-    setIsLoading(false);
-  }
-
-  
-
   const showAlert = (message, severity) => {
     setAlert({message, severity});
     setTimeout(() => setAlert(null), 2000);
@@ -44,7 +24,6 @@ const App = () => {
   /* Return */
   return (
     <AnimeState>
-
       <BrowserRouter>
         <div className="App">
           <header className="uk-position-top uk-position-z-index">
@@ -53,7 +32,7 @@ const App = () => {
           <main>
             <Alert alert={alert} />
             <Switch>
-              <Route exact path="/" render={props => (
+              <Route exact path="/" render={ () => (
                 <Fragment>
                   <Search 
                     showAlert={showAlert}
@@ -62,14 +41,7 @@ const App = () => {
                 </Fragment>
               )} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/anime/:id" render={props => (
-                <Anime 
-                  {...props} 
-                  getAnime={getAnime}
-                  anime={anime}
-                  isLoading={isLoading}
-                />
-              )} />
+              <Route exact path="/anime/:id" component={Anime} />
             </Switch>
           </main>
         </div>

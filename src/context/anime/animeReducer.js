@@ -2,7 +2,8 @@ import {
   SET_LOADING,
   SET_NO_RESULT,
   SEARCH_ANIMES,
-  CLEAR_ANIMES
+  CLEAR_ANIMES,
+  GET_ANIME
 } from '../types';
 
 export default (state, action) => {
@@ -29,6 +30,12 @@ export default (state, action) => {
         animes: [],
         isLoading: false,
         isNoResults: false
+      }
+    case GET_ANIME:
+      return {
+        ...state,
+        anime: action.payload,
+        isLoading: false
       }
     default:
       return state;

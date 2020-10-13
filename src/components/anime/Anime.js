@@ -1,10 +1,18 @@
-import React, { Fragment, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment, useEffect, useContext } from 'react';
+import AnimeContext from '../../context/anime/animeContext';
 import AnimeCover from '../anime/AnimeCover';
 import AnimeBasicInfo from '../anime/AnimeBasicInfo';
 import AnimeAboutInfo from '../anime/AnimeAboutInfo';
 
-const Anime = ({ getAnime, anime, isLoading, match }) => {
+const Anime = ({ match }) => {
+
+  // Context
+  const animeContext = useContext(AnimeContext);
+  const {
+    anime,
+    isLoading,
+    getAnime
+  } = animeContext
 
   // On Init
   useEffect( () => {
@@ -68,12 +76,6 @@ const Anime = ({ getAnime, anime, isLoading, match }) => {
     </Fragment>
   )
 
-}
-
-Anime.prototypes = {
-  getAnime: PropTypes.func.isRequired,
-  anime: PropTypes.object.isRequired,
-  isLoading: PropTypes.bool.isRequired
 }
 
 export default Anime;
