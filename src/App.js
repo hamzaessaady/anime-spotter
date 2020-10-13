@@ -1,9 +1,10 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AnimeState from '../src/context/anime/AnimeState';
 import AlertState from '../src/context/alert/AlertState';
 import Navbar from './components/layout/Navbar';
 import Alert from './components/layout/Alert';
+import Footer from './components/layout/Footer';
 import Animes from './components/animes/Animes';
 import Anime from './components/anime/Anime';
 import Search from './components/animes/Search';
@@ -34,6 +35,7 @@ const App = () => {
                 <Route exact path="/anime/:id" component={Anime} />
               </Switch>
             </main>
+            <Footer />
           </div>
         </BrowserRouter>
       </AlertState>

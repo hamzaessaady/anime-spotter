@@ -10,7 +10,7 @@ const AnimeItem = (props) => {
 
   return (
     <Fragment>
-      <div>
+      <div className="uk-margin-top uk-margin-bottom">
         <div className="uk-card uk-card-small uk-card-hover uk-card-default uk-grid-collapse uk-margin uk-grid-match" data-uk-grid>
           <div className="uk-card-media-left uk-cover-container uk-width-1-4">
             <img src={posterImage.original} alt="Poster" data-uk-cover />

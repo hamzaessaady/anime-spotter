@@ -38,7 +38,7 @@ const Search = () => {
   // Return
   return (
     <Fragment>
-      <article className="uk-section uk-section-primary uk-light uk-margin-bottom">
+      <article className="uk-section uk-section-primary uk-light" uk-height-viewport="expand: true">
         <div className="uk-container uk-text-center uk-margin-medium-top">
           <h2 className="uk-text-capitalize">
             Best place to search for any anime data

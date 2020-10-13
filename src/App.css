@@ -11,3 +11,11 @@ html {
 .uk-description-list>dt {
   font-weight: 700;
 }
+
+footer:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.3rem;
+  background: linear-gradient(30deg,#ffd3cb 10%,#ffdf4e 25%, #f12a22 50%, #f18472 75%, #90deef 90%);
+}
