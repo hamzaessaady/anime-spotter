@@ -1,9 +1,16 @@
 import React, { Fragment } from 'react';
-import { useState } from 'react';
-import chopper from './chopper.png';
+import { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import AnimeContext from '../../context/anime/animeContext'
+import chopper from './chopper.png';
 
-const Search = ({ searchAnimes, showAlert, clearAnimes, isShowClear }) => {
+const Search = ({ showAlert, clearAnimes, isShowClear }) => {
+
+  // Context
+  const animeContext = useContext(AnimeContext);
+  const { 
+    searchAnimes 
+  } = animeContext;
 
   // State
   const [search, setSearch] = useState('');
@@ -65,7 +72,6 @@ const Search = ({ searchAnimes, showAlert, clearAnimes, isShowClear }) => {
 
 // PropTypes
 Search.propTypes = { 
-  searchAnimes: PropTypes.func.isRequired,
   clearAnimes: PropTypes.func.isRequired,
   showAlert: PropTypes.func.isRequired,
   isShowClear: PropTypes.bool.isRequired

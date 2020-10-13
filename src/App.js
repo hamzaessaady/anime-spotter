@@ -25,14 +25,7 @@ const App = () => {
     [alert, setAlert] = useState(null);
 
   /* Actions */
-  const searchAnimes = async (keyword) => {
-    setIsLoading(true);
-    const result = await axios.get(`${API_BASE_URL}?filter[text]=${keyword}`);
-    setAnimes(result.data.data);
-    setIsLoading(false);
-    setIsNoResults(result.data.data.length === 0 ? true : false);
-    window.scrollTo(0, 200);
-  }
+  
 
   const getAnime = async (id) => {
     setIsLoading(true);
@@ -69,16 +62,11 @@ const App = () => {
               <Route exact path="/" render={props => (
                 <Fragment>
                   <Search 
-                    searchAnimes={searchAnimes}
                     clearAnimes={clearAnimes}
                     isShowClear={animes.length > 0 ? true : false}
                     showAlert={showAlert}
                   />
-                  <Animes
-                    isLoading={isLoading} 
-                    isNoResults={isNoResults}
-                    animes={animes}
-                  />
+                  <Animes />
                 </Fragment>
               )} />
               <Route exact path="/about" component={About} />
