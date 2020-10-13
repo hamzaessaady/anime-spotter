@@ -18,10 +18,8 @@ const App = () => {
 
   /* State */
   const 
-    [animes, setAnimes] = useState([]),
     [anime, setAnime] = useState({}),
     [isLoading, setIsLoading] = useState(false),
-    [isNoResults, setIsNoResults] = useState(false),
     [alert, setAlert] = useState(null);
 
   /* Actions */
@@ -36,11 +34,7 @@ const App = () => {
     setIsLoading(false);
   }
 
-  const clearAnimes = () => {
-    setAnimes([]);
-    setIsLoading(false);
-    setIsNoResults(false);
-  }
+  
 
   const showAlert = (message, severity) => {
     setAlert({message, severity});
@@ -62,8 +56,6 @@ const App = () => {
               <Route exact path="/" render={props => (
                 <Fragment>
                   <Search 
-                    clearAnimes={clearAnimes}
-                    isShowClear={animes.length > 0 ? true : false}
                     showAlert={showAlert}
                   />
                   <Animes />

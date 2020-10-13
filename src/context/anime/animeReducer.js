@@ -1,7 +1,8 @@
 import {
   SET_LOADING,
   SET_NO_RESULT,
-  SEARCH_ANIMES
+  SEARCH_ANIMES,
+  CLEAR_ANIMES
 } from '../types';
 
 export default (state, action) => {
@@ -14,13 +15,20 @@ export default (state, action) => {
     case SET_NO_RESULT:
       return {
         ...state,
-        isNoResult: action.payload
+        isNoResults: action.payload
       }
     case SEARCH_ANIMES:
       return {
         ...state,
         animes: action.payload,
         isLoading: false
+      }
+    case CLEAR_ANIMES:
+      return {
+        ...state,
+        animes: [],
+        isLoading: false,
+        isNoResults: false
       }
     default:
       return state;

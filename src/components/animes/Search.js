@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 import AnimeContext from '../../context/anime/animeContext'
 import chopper from './chopper.png';
 
-const Search = ({ showAlert, clearAnimes, isShowClear }) => {
+const Search = ({ showAlert }) => {
 
   // Context
   const animeContext = useContext(AnimeContext);
   const { 
-    searchAnimes 
+    searchAnimes,
+    clearAnimes,
+    animes
   } = animeContext;
 
   // State
@@ -57,7 +59,7 @@ const Search = ({ showAlert, clearAnimes, isShowClear }) => {
               </div>
             </div>
           </form>
-          {isShowClear &&
+          {animes.length > 0 &&
             <button className="uk-button uk-button-text"
               onClick={clearSearch}>
               Clear
@@ -72,9 +74,7 @@ const Search = ({ showAlert, clearAnimes, isShowClear }) => {
 
 // PropTypes
 Search.propTypes = { 
-  clearAnimes: PropTypes.func.isRequired,
   showAlert: PropTypes.func.isRequired,
-  isShowClear: PropTypes.bool.isRequired
 }
 
 export default Search;

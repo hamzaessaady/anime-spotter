@@ -5,7 +5,8 @@ import AnimeReducer from './animeReducer';
 import {
   SET_LOADING,
   SET_NO_RESULT,
-  SEARCH_ANIMES
+  SEARCH_ANIMES,
+  CLEAR_ANIMES
 } from '../types';
 
 const AnimeState = (props) => {
@@ -37,13 +38,16 @@ const AnimeState = (props) => {
     window.scrollTo(0, 200);
   }
 
+  const clearAnimes = () => dispatch({ type: CLEAR_ANIMES });
+
   /* Provider */
   return <AnimeContext.Provider 
     value= {{
       animes: state.animes,
       isLoading: state.isLoading,
       isNoResults: state.isNoResults,
-      searchAnimes
+      searchAnimes,
+      clearAnimes
     }}
   >
     {props.children}
