@@ -16,7 +16,7 @@ const Animes = () => {
     <Fragment>
       <article className="uk-container uk-text-center">
         {isLoading && 
-          <span className="uk-margin-top" data-uk-spinner="ratio: 3"></span>}
+          <span className="uk-margin-top uk-margin-bottom" data-uk-spinner="ratio: 3"></span>}
         {isNoResults &&
           <div className="uk-placeholder uk-text-center uk-text-italic">
             No anime found

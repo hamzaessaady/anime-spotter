@@ -38,12 +38,17 @@ const Search = () => {
   // Return
   return (
     <Fragment>
-      <article className="uk-section uk-section-primary uk-light" uk-height-viewport="expand: true">
-        <div className="uk-container uk-text-center uk-margin-medium-top">
-          <h2 className="uk-text-capitalize">
-            Best place to search for any anime data
+      <article className="uk-section uk-section-primary uk-light" 
+        uk-height-viewport="expand: true">
+        <div className="uk-container uk-text-center uk-margin-medium-top searchSection">
+          <h2 className="uk-text-capitalize uk-text-bold uk-margin-remove-bottom"
+            style={{color: "#d3efff"}}>
+            Spot whatever anime you want
           </h2>
-          <img src={chopper} alt="Illustration" width="200px"/>
+          <h3 className="uk-text-meta uk-margin-remove" style={{fontSize: "1rem"}}>
+            Your best place to search for anime information 
+          </h3>
+          <img className="" src={chopper} alt="Illustration" width="200px"/>
           <form onSubmit={onSubmit}>
             <div className="uk-margin">
               <div className="uk-inline">
@@ -51,7 +56,7 @@ const Search = () => {
                   type="text" name="search" placeholder="e.g. One piece"
                   value={search} onChange={onChange} />
                 <button className="uk-form-icon uk-form-icon-flip"
-                  type="submit" data-uk-icon="icon: search">
+                  type="submit" data-uk-icon="icon: search; color: red">
                 </button>
               </div>
             </div>

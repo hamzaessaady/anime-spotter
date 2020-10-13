@@ -3,7 +3,8 @@ import {
   SET_NO_RESULT,
   SEARCH_ANIMES,
   CLEAR_ANIMES,
-  GET_ANIME
+  GET_ANIME,
+  HIDE_FOOTER
 } from '../types';
 
 export default (state, action) => {
@@ -35,7 +36,13 @@ export default (state, action) => {
       return {
         ...state,
         anime: action.payload,
-        isLoading: false
+        isLoading: false,
+        isShowFooter: true
+      }
+    case HIDE_FOOTER:
+      return {
+        ...state,
+        isShowFooter: false
       }
     default:
       return state;

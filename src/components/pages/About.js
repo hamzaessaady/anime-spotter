@@ -5,9 +5,10 @@ const About = () => {
   return (
     <Fragment>
       <section className="uk-section">
-        <div className="uk-container uk-text-center">
-          <h2>About This App</h2>
-          <p>
+        <div className="uk-overlay uk-overlay-primary uk-position-top uk-padding overlay-s"></div>
+        <div className="uk-container uk-text-center uk-margin-medium-top">
+          <h2 className="uk-margin-medium-top uk-text-bold">About This App</h2>
+          <p style={{fontSize: '1.5rem'}}>
             Find all the anime information data using the
             <a href="https://kitsu.docs.apiary.io/"> Kitsu</a> API.
           </p>

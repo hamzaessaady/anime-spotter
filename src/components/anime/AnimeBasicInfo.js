@@ -17,9 +17,9 @@ const AnimeBasicInfo = (props) => {
       <section className="uk-container uk-padding-small">
         <div data-uk-grid >
           
-          <div className="uk-text-center uk-width-1-4"
+          <div className="uk-text-center uk-width-1-4@s"
             style={{marginTop: '-130px'}}>
-            <img className="uk-box-shadow-medium" alt="Poster anime"
+            <img className="uk-box-shadow-medium posterAnime" alt="Poster anime"
               src={posterImage?.medium} width="90%" />
             {averageRating !== null &&
               <h2 className="uk-text-bold uk-text-center uk-margin-small-top">
@@ -28,7 +28,7 @@ const AnimeBasicInfo = (props) => {
               </h2>}
           </div>
           
-          <div className="uk-text-left uk-width-3-4">
+          <div className="uk-text-left uk-width-3-4@s">
             {/* Back Link */}
             <Link to="/">
               <button className="uk-button uk-button-text uk-text-warning uk-text-bold">

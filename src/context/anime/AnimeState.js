@@ -7,7 +7,8 @@ import {
   SET_NO_RESULT,
   SEARCH_ANIMES,
   CLEAR_ANIMES,
-  GET_ANIME
+  GET_ANIME,
+  HIDE_FOOTER
 } from '../types';
 
 const AnimeState = (props) => {
@@ -17,7 +18,8 @@ const AnimeState = (props) => {
     animes: [],
     anime: {},
     isLoading: false,
-    isNoResults: false
+    isNoResults: false,
+    isShowFooter: true
   }
 
   /* Reducer */
@@ -25,6 +27,9 @@ const AnimeState = (props) => {
 
   /* Action : Set Loading*/
   const setLoading = () => dispatch({ type: SET_LOADING });
+
+  /* Action : Hide Footer*/
+  const hideFooter = () => dispatch({ type: HIDE_FOOTER });
 
   /* Action : Search Animes*/
   const searchAnimes = async (keyword) => {
@@ -47,6 +52,7 @@ const AnimeState = (props) => {
   /* Action : Get Anime*/
   const getAnime = async (id) => {
     setLoading();
+    hideFooter();
     const result = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/${id}`);
     const genres = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/${id}/genres?fields[genres]=name`);
     result.data.data.attributes.genres = genres.data.data.map(g => g.attributes.name);
@@ -54,6 +60,7 @@ const AnimeState = (props) => {
       type: GET_ANIME,
       payload: result.data.data.attributes
     });
+    
   }
 
   /* Provider */
@@ -63,6 +70,7 @@ const AnimeState = (props) => {
       anime: state.anime,
       isLoading: state.isLoading,
       isNoResults: state.isNoResults,
+      isShowFooter: state.isShowFooter,
       searchAnimes,
       clearAnimes,
       getAnime
