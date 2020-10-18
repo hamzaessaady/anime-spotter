@@ -4,7 +4,9 @@ import {
   SEARCH_ANIMES,
   CLEAR_ANIMES,
   GET_ANIME,
-  HIDE_FOOTER
+  HIDE_FOOTER,
+  FETCH_NEXT,
+  SET_FETCHING
 } from '../types';
 
 export default (state, action) => {
@@ -14,6 +16,11 @@ export default (state, action) => {
         ...state,
         isLoading : true
       }
+    case SET_FETCHING:
+      return {
+        ...state,
+        isFetchingEnd : true
+      }
     case SET_NO_RESULT:
       return {
         ...state,
@@ -22,7 +29,8 @@ export default (state, action) => {
     case SEARCH_ANIMES:
       return {
         ...state,
-        animes: action.payload,
+        animes: action.payload.data,
+        nextPageLink: action.payload.links.next,
         isLoading: false
       }
     case CLEAR_ANIMES:
@@ -38,6 +46,15 @@ export default (state, action) => {
         anime: action.payload,
         isLoading: false,
         isShowFooter: true
+      }
+    case FETCH_NEXT:
+      return {
+        ...state,
+        animes: [
+          ...state.animes,
+          ...action.payload.data,
+        ],
+        nextPageLink: action.payload.links.next
       }
     case HIDE_FOOTER:
       return {

@@ -8,7 +8,9 @@ import {
   SEARCH_ANIMES,
   CLEAR_ANIMES,
   GET_ANIME,
-  HIDE_FOOTER
+  HIDE_FOOTER,
+  FETCH_NEXT,
+  SET_FETCHING
 } from '../types';
 
 /* Env Vars */
@@ -30,8 +32,10 @@ const AnimeState = (props) => {
     animes: [],
     anime: {},
     isLoading: false,
+    isFetchingEnd: false,
     isNoResults: false,
-    isShowFooter: true
+    isShowFooter: true,
+    nextPageLink: null
   }
 
   /* Reducer */
@@ -39,6 +43,9 @@ const AnimeState = (props) => {
 
   /* Action : Set Loading*/
   const setLoading = () => dispatch({ type: SET_LOADING });
+
+  /* Action : Set Fetching*/
+  const setFetching = () => dispatch({ type: SET_FETCHING });
 
   /* Action : Hide Footer*/
   const hideFooter = () => dispatch({ type: HIDE_FOOTER });
@@ -49,13 +56,26 @@ const AnimeState = (props) => {
     const result = await axios.get(`${APIBaseUrl}?filter[text]=${keyword}`);
     dispatch({ 
       type: SEARCH_ANIMES, 
-      payload: result.data.data
+      payload: result.data
     });
     dispatch({ 
       type: SET_NO_RESULT, 
       payload: result.data.data.length === 0 ? true : false
     });
     window.scrollTo(0, 200);
+  }
+
+  /* Action : Fetch next page*/
+  const fetchNextPage = async () => {
+    if (state.nextPageLink !== undefined) {
+      const result = await axios.get(state.nextPageLink);
+      dispatch({ 
+        type: FETCH_NEXT, 
+        payload: result.data
+      });
+    } else {
+      setFetching();
+    }
   }
 
   /* Action : Clear Animes*/
@@ -81,11 +101,13 @@ const AnimeState = (props) => {
       animes: state.animes,
       anime: state.anime,
       isLoading: state.isLoading,
+      isFetchingEnd: state.isFetchingEnd,
       isNoResults: state.isNoResults,
       isShowFooter: state.isShowFooter,
       searchAnimes,
       clearAnimes,
-      getAnime
+      getAnime,
+      fetchNextPage
     }}
   >
     {props.children}

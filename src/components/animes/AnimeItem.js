@@ -25,7 +25,7 @@ const AnimeItem = (props) => {
                 {status}
               </div>
               <h3 className="uk-card-title uk-margin-top">{titles.en_jp}</h3>
-              <p className="">{`${synopsis.substring(0, 150)}...`}</p>
+              <p className="">{`${synopsis?.substring(0, 150)}...`}</p>
             </div>
             <div style={{border:'none'}}
               className="uk-card-footer uk-padding-remove uk-flex uk-flex-bottom">
