@@ -38,7 +38,8 @@ export default (state, action) => {
         ...state,
         animes: [],
         isLoading: false,
-        isNoResults: false
+        isNoResults: false,
+        isFetchingEnd: false
       }
     case GET_ANIME:
       return {

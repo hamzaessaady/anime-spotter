@@ -51,7 +51,7 @@ const Animes = () => {
             <span className="uk-margin-top uk-margin-bottom" data-uk-spinner="ratio: 1"></span>
           </div>
         }
-        {isFetchingEnd &&
+        {(isFetchingEnd && animes.length>0) &&
           <div className="uk-text-center uk-margin-top uk-margin-bottom uk-text-italic">
             <span>total search result : {animes.length}</span>
           </div>
