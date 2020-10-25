@@ -1,24 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [Anime Spotter][homepageURL]
+![NPM][npmBadge] [![NPM][homepageBadge]][homepageURL] <br/>
+By [Hamza Es-saady][linkedinURL]
 
-## Available Scripts
+<!-- Logo -->
+<div align="center">
+<img src="./Logo.png" alt="Anime Spotter Logo" width="400px">
+</div> <br/>
 
+<!-- Description -->
+[Anime Spotter][homepageURL] is a **WEB application** to help you search for any Anime data. You'll like Anime Spotter because it is lightweight and uses a friendly and minimalist UI. Anime Spotter is not better than other existing solutions, but it can help you make a quick search of Animes with the very basic information you will need. It's a best starting point for beginners who start learning **React**.
+
+You are free to reuse, copy, modify, and distribute, but you have to give attribution.
+
+## Technologies & Tools
+[Anime Spotter][homepageURL] is created with:
+* [React][reactURL] (using Context API & Hooks) : Frontend framework
+* [Node.js][nodeURL] : Runtime environment
+* [UiKit][uikitURL] : Layout and styles
+* [Kitsu API][kitsuURL] : Layout and styles
+
+## Installation and configuration
+First make sure that [Node][nodeURL] and [NPM][npmURL] are installed in your system.
+
+### Clone the repo
+```shell
+git clone https://github.com/Kuohamkun/anime-spotter.git
+cd anime-spotter
+```
+### Install npm packages
+Install the `npm` packages described in the `package.json`:
+
+```shell
+npm install
+```
+
+### Run
 In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
+```shell
+npm start
+```
+It will run the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
+### Build
+In the project directory, you can run:
+```shell
+npm run build
+```
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
@@ -27,42 +58,46 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Preview
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### :arrow_forward: [**Click here**][homepageURL] to visit the live version of Anime Spotter.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Home page :  
+<div align="center">
+<img src="./screenshots/home.png" alt="Anime Spotter Home page" width="80%">
+</div>
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Search results :
+<div align="center">
+<img src="./screenshots/search.png" alt="Search results" width="80%">
+</div>
+<br/>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Anime Info :
+<div align="center">
+<img src="./screenshots/anime.png" alt="Anime Info" width="80%">
+</div> <br/>
+
+### About page :
+<div align="center">
+<img src="./screenshots/about.png" alt="About page" width="80%">
+</div> <br/>
+
 
 ## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). <br/>
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).<br/>
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<!-- IDENTIFIERS ------------------------------------------------------------->
+[homepageURL]: https://anime-spotter.netlify.app
+[linkedinURL]: https://www.linkedin.com/in/essaadyhamza/
+[reactURL]: https://reactjs.org/ 
+[nodeURL]: https://nodejs.org
+[uikitURL]: https://getuikit.com/
+[npmURL]: https://www.npmjs.com/
+[kitsuURL]: https://kitsu.docs.apiary.io/
+[homepageBadge]: https://img.shields.io/badge/VISIT_HOME_PAGE-1e87f0?style=flat-square?link
+[npmBadge]: https://img.shields.io/npm/v/npm?color=CB3837&logo=NPM&style=flat-square
