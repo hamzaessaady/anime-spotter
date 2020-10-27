@@ -1,5 +1,5 @@
 # [Anime Spotter][homepageURL]
-![NPM][npmBadge] [![NPM][homepageBadge]][homepageURL] <br/>
+[![NPM][homepageBadge]][homepageURL] ![NPM][npmBadge] <br/>
 By [Hamza Es-saady][linkedinURL]
 
 <!-- Logo -->
@@ -84,11 +84,26 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 <img src="./screenshots/about.png" alt="About page" width="80%">
 </div> <br/>
 
-
 ## Learn More
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). <br/>
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).<br/>
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## :sparkling_heart: Support me
+
+I just start to open-source almost everything I can, and I try to reply to everyone needing help using these projects.
+However, If you are using this project and happy with it and just want to **encourage** me to continue creating stuff, there are few ways you can do it :
+
+- **Giving proper credit when you use it, linking back to it :D**
+- **Starring and sharing the project :rocket:**
+
+Thanks! :heart:
+
+---
+
+Contributions are welcome! <3
+
+Made with :heart: and Passion.
 
 
 <!-- IDENTIFIERS ------------------------------------------------------------->
@@ -99,5 +114,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 [uikitURL]: https://getuikit.com/
 [npmURL]: https://www.npmjs.com/
 [kitsuURL]: https://kitsu.docs.apiary.io/
-[homepageBadge]: https://img.shields.io/badge/VISIT_HOME_PAGE-1e87f0?style=flat-square?link
+[homepageBadge]: https://img.shields.io/badge/VISIT_HOME_PAGE-1e87f0?style=flat-square
 [npmBadge]: https://img.shields.io/npm/v/npm?color=CB3837&logo=NPM&style=flat-square
