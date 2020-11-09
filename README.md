@@ -17,7 +17,7 @@ You are free to reuse, copy, modify, and distribute, but you have to give attrib
 * [React][reactURL] (using Context API & Hooks) : Frontend framework
 * [Node.js][nodeURL] : Runtime environment
 * [UiKit][uikitURL] : Layout and styles
-* [Kitsu API][kitsuURL] : Layout and styles
+* [Kitsu API][kitsuURL] : Anime API
 
 ## Installation and configuration
 First make sure that [Node][nodeURL] and [NPM][npmURL] are installed in your system.
